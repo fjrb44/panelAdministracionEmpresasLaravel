@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class empresaRequest extends FormRequest{
+class EmpresaRequest extends FormRequest{
 
     public function authorize(){
         return true;
@@ -16,7 +16,7 @@ class empresaRequest extends FormRequest{
         return [
             "name" => ["required"],
             "email" => ["required"],
-            "logo" => ["required"]
+            "logo" => ["required","image","mimes:jpeg,png,jpg,gif,wepb","max:2048", "dimensions:min_width=100,min_height=100"]
         ];
     }
 }

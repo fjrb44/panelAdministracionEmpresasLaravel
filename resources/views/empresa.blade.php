@@ -1,12 +1,15 @@
 @extends('layouts.master')
 
-@section('title', $empresa->name)
+@section('titulo', $empresa->name)
 
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="">
-                <img class="" src="../storage/{{ $empresa->logo }}" alt="{{ $empresa->name }}">
+            <div class="col-12">
+                <img class="empresa-logo" src="../storage/{{ $empresa->logo }}" alt="{{ $empresa->name }}">
+            </div>
+            <div class="col-12 mb-3 mt-3">
+                <p>{{ $empresa->email }}</p>
             </div>
             @if(sizeof($empresa->empleado) === 0)
                 <div class="alert alert-warning">

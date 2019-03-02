@@ -2,6 +2,11 @@
 
 @section('content')
 <div class="container">
+    @if(Session::has('permisions'))
+        <div class="alert alert-danger">
+            {{Session::get('permisions')}}
+        </div>
+    @endif
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
