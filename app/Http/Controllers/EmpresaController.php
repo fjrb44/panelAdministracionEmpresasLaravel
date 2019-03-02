@@ -3,37 +3,25 @@
 namespace App\Http\Controllers;
 
 use App\Empresa;
+use App\Empleado;
 use Illuminate\Http\Request;
+use App\Http\Request\empresaRequest;
 
 class EmpresaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $empresas = Empresa::paginate(2);
+
+        return view('empresas', compact('empresas'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function store(empresaRequest $request)
     {
         $empresa = new Empresa();
 
@@ -41,7 +29,8 @@ class EmpresaController extends Controller
             $file = $request->file('logo');
             $name = $empresa->id.time().$file->getClientOriginalName();
 
-            $file->move(public_path().'/img/', $name);
+            $file->move("storage/", $name);
+            //$file->move(public_path().'/storage/', $name);
         }
 
         
@@ -49,51 +38,33 @@ class EmpresaController extends Controller
         $empresa->email = $request->input('email');
         $empresa->logo = $name;
 
-        $empresa->save();
+        //$empresa->save();
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Empresa  $empresa
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Empresa $empresa)
-    {
-        //
+    public function show($id)
+    {   
+        $empresa = Empresa::find($id);
+        if(empty($empresa)){
+            return redirect("empresas");
+        }
+
+        $empleados = Empleado::where('empresa_id', $id)->paginate(10);
+
+        return view("empresa", compact("empresa", "empleados"));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Empresa  $empresa
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Empresa $empresa)
     {
-        //
+        
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Empresa  $empresa
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Empresa $empresa)
+    public function update(empresaRequest $request, Empresa $empresa)
     {
-        //
+        
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Empresa  $empresa
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Empresa $empresa)
     {
-        //
+        
     }
 }
