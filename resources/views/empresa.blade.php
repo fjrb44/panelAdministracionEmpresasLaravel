@@ -2,6 +2,12 @@
 
 @section('titulo', $empresa->name)
 
+@section('menu')
+    <li class="nav-item">
+        <a class="nav-link" href="{{$empresa->id}}/empleado">Añadir empleado</a>
+    </li>
+@endsection
+
 @section('content')
     <div class="container">
         <div class="row justify-content-center">

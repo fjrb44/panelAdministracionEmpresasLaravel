@@ -2,6 +2,11 @@
 
 @section('content')
     <div class="container">
+        @if(Session::has('fallo'))
+            <div class="alert alert-danger">
+                {{Session::get('fallo')}}
+            </div>
+        @endif
         <div class="row justify-content-center">
             @if(sizeof($empresas) == 0)
             <div class="alert alert-warning">

@@ -3,83 +3,67 @@
 namespace App\Http\Controllers;
 
 use App\Empleado;
+use App\Empresa;
 use Illuminate\Http\Request;
+use App\Http\Requests\EmpleadoRequest;
+use Session;
 
 class EmpleadoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
+    public function index(){
+        
+
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+    public function create($id){
+        $empresa = Empresa::find($id);
+
+        if(empty($empresa)){
+            Session::flash('fallo', "La empresa no existe.");
+            return redirect("empresas/");
+        }
+
+        return view('crearEmpleado', compact('empresa'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+    public function store($id, EmpleadoRequest $request){
+        $empresa = Empresa::find($id);
+
+        if(empty($empresa)){
+            Session::flash('fallo', "La empresa no existe.");
+            return redirect("empresas/");
+        }
+
+        $empleado = new Empleado();
+        
+        $empleado->nombre = $request->input('nombre');
+        $empleado->apellido = $request->input('apellido');
+        $empleado->email = $request->input('email');
+        $empleado->empresa_id = $id;
+
+        $empleado->save();
+        Session::flash('correcto', "El empleado se ha añadido correctamente.");
+        
+        return redirect("empresas/".$id);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Empleado  $empleado
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Empleado $empleado)
-    {
-        //
+    public function show(Empleado $empleado){
+        
+
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Empleado  $empleado
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Empleado $empleado)
-    {
-        //
+    public function edit(Empleado $empleado){
+        
+
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Empleado  $empleado
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Empleado $empleado)
-    {
-        //
+    public function update(Request $request, Empleado $empleado){
+        
+
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Empleado  $empleado
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Empleado $empleado)
-    {
-        //
+    public function destroy(Empleado $empleado){
+
+
     }
 }

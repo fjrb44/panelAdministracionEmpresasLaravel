@@ -10,34 +10,25 @@ use Session;
 
 class EmpresaController extends Controller
 {
-    public function index()
-    {
+    public function index(){
         $empresas = Empresa::paginate(10);
 
         return view('empresas', compact('empresas'));
     }
 
-    public function create()
-    {
+    public function create(){
         return view('crearEmpresa');
     }
 
-    public function store(EmpresaRequest $request)
-    {
+    public function store(EmpresaRequest $request){
         
         $empresa = new Empresa();
         
         if($request->hasFile('logo')){
-            echo "POTENCIAAAA";
             $file = $request->file('logo');
             $name = $empresa->id.time().$file->getClientOriginalName();
 
-            //$file->move("storage/", $name);
             $file->move(public_path("storage"), $name);
-
-            echo $name." Esto es name";
-        }else{
-            echo "no hay potencia";
         }
 
         
@@ -51,8 +42,7 @@ class EmpresaController extends Controller
         return redirect("empresas/post");
     }
 
-    public function show($id)
-    {   
+    public function show($id){   
         $empresa = Empresa::find($id);
         if(empty($empresa)){
             return redirect("empresas");
@@ -63,18 +53,15 @@ class EmpresaController extends Controller
         return view("empresa", compact("empresa", "empleados"));
     }
 
-    public function edit(Empresa $empresa)
-    {
+    public function edit(Empresa $empresa){
         
     }
 
-    public function update(empresaRequest $request, Empresa $empresa)
-    {
+    public function update(empresaRequest $request, Empresa $empresa){
         
     }
 
-    public function destroy(Empresa $empresa)
-    {
+    public function destroy(Empresa $empresa){
         
     }
 }
