@@ -35,7 +35,21 @@ class EmpresaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $empresa = new Empresa();
+
+        if($request->hasFile('logo')){
+            $file = $request->file('logo');
+            $name = $empresa->id.time().$file->getClientOriginalName();
+
+            $file->move(public_path().'/img/', $name);
+        }
+
+        
+        $empresa->name = $request->input('name');
+        $empresa->email = $request->input('email');
+        $empresa->logo = $name;
+
+        $empresa->save();
     }
 
     /**
