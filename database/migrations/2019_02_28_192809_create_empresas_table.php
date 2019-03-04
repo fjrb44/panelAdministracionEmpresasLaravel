@@ -11,11 +11,12 @@ class CreateEmpresasTable extends Migration
     {
         Schema::create('empresas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            
+
             $table->string('name');
             $table->string('email')->unique();
             $table->string('logo');
-            
+            $table->string('web');
+
             $table->timestamps();
         });
     }

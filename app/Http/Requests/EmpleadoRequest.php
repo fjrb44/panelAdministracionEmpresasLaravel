@@ -12,11 +12,12 @@ class EmpleadoRequest extends FormRequest{
 
     public function rules(){
         $datos = $this->validationData();
-        
+
         return [
             "nombre" => ["required"],
             "apellido" => ["required"],
-            "email" => ["required"]
+            "email" => ["required"],
+            "telefono" => ["required"]
         ];
     }
 }

@@ -33,10 +33,14 @@
                                 <input id="email" type="email" name="email" class="form-control" value="{{old('email')}}">
                             </div>
                             <div class="form-group">
+                                <label for="web">Web</label>
+                                <input id="web" type="text" name="web" class="form-control" value="{{old('web')}}">
+                            </div>
+                            <div class="form-group">
                                 <label for="logo">Logo</label>
                                 <input id="logo" type="file" name="logo" class="form-control">
                             </div>
-                            
+
                             <button type="submit">
                                 Crear
                             </button>

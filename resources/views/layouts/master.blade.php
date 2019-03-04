@@ -24,7 +24,7 @@
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
       <!-- Messages Dropdown Menu -->
-      
+
       @auth
         <li class="nav-item">
           <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
@@ -39,34 +39,14 @@
     </ul>
   </nav>
   <!-- /.navbar -->
- 
+
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="home" class="brand-link">
       <span class="brand-text font-weight-light">Gestor de empresas</span>
     </a>
-      @guest
-        <!-- Sidebar -->
-        <div class="sidebar">          
-          <!-- Sidebar Menu -->
-          <nav class="mt-2">
-            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-              <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon fa fa-th"></i>
-                  <p>
-                    Simple Link
-                  </p>
-                </a>
-              </li>
-            </ul>
-          </nav>
-          <!-- /.sidebar-menu -->
-        </div>
-        <!-- /.sidebar -->
-      @else
+      @auth
         <!-- Sidebar -->
         <div class="sidebar">
           <!-- Sidebar user panel (optional) -->
@@ -99,7 +79,7 @@
             <!-- /.sidebar-menu -->
           </div>
           <!-- /.sidebar -->
-        @endguest
+        @endauth
     </aside>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">

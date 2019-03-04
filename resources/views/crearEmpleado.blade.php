@@ -42,7 +42,10 @@
                                 <label for="email">Email</label>
                                 <input id="email" type="email" name="email" class="form-control" value="{{old('email')}}">
                             </div>
-                            
+                            <div class="form-group">
+                                <label for="telefono">Telefono</label>
+                                <input id="telefono" type="number" name="telefono" class="form-control" value="{{old('telefono')}}">
+                            </div>
                             <button type="submit" class="btn btn-success">
                                 Crear
                             </button>

@@ -11,7 +11,7 @@ use Session;
 class EmpleadoController extends Controller
 {
     public function index(){
-        
+
 
     }
 
@@ -35,30 +35,31 @@ class EmpleadoController extends Controller
         }
 
         $empleado = new Empleado();
-        
+
         $empleado->nombre = $request->input('nombre');
         $empleado->apellido = $request->input('apellido');
         $empleado->email = $request->input('email');
+        $empleado->telefono = $request->input('telefono');
         $empleado->empresa_id = $id;
 
         $empleado->save();
         Session::flash('correcto', "El empleado se ha añadido correctamente.");
-        
+
         return redirect("empresas/".$id);
     }
 
     public function show(Empleado $empleado){
-        
+
 
     }
 
     public function edit(Empleado $empleado){
-        
+
 
     }
 
     public function update(Request $request, Empleado $empleado){
-        
+
 
     }
 
