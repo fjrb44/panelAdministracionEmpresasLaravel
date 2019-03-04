@@ -7,6 +7,7 @@ use App\Empleado;
 use Illuminate\Http\Request;
 use App\Http\Requests\EmpresaRequest;
 use App\Http\Requests\EditEmpresaRequest;
+use App\Http\Requests\EmpleadoRequest;
 use Session;
 use Illuminate\Support\Facades\Storage;
 
@@ -15,11 +16,11 @@ class EmpresaController extends Controller
     public function index(){
         $empresas = Empresa::paginate(10);
 
-        return view('empresas', compact('empresas'));
+        return view('empresa.index', compact('empresas'));
     }
 
     public function create(){
-        return view('crearEmpresa');
+        return view('empresa.create');
     }
 
     public function store(EmpresaRequest $request){
@@ -52,7 +53,7 @@ class EmpresaController extends Controller
             return redirect("empresas");
         }
 
-        return view("empresa", compact("empresa"));
+        return view("empresa.show", compact("empresa"));
     }
 
     public function showEmp($id){
@@ -63,7 +64,7 @@ class EmpresaController extends Controller
 
         $empleados = Empleado::where('empresa_id', $id)->paginate(10);
 
-        return view("empresaEmpleado", compact("empresa", "empleados"));
+        return view("empresa.showEmp", compact("empresa", "empleados"));
     }
 
     public function edit($id){
@@ -71,7 +72,7 @@ class EmpresaController extends Controller
         if(empty($empresa)){
             return redirect("empresas");
         }
-        return view("editarEmpresa", compact("empresa"));
+        return view("empresa.edit", compact("empresa"));
     }
 
     public function update(EditEmpresaRequest $request, $id){
@@ -104,6 +105,10 @@ class EmpresaController extends Controller
     public function destroy($id){
         $empresa = Empresa::find($id);
         
+        if(empty($empresa)){
+            return redirect("empresas");
+        }
+
         Empresa::find($id)->delete();
 
         Storage::delete("public/".$empresa->logo);
@@ -111,5 +116,38 @@ class EmpresaController extends Controller
         Session::flash('borrar', "La empresa ha sido borrada correctamente.");
 
         return redirect("/empresas");
+    }
+
+    public function createEmpleado($id){
+        $empresa = Empresa::find($id);
+
+        if(empty($empresa)){
+            Session::flash('fallo', "La empresa no existe.");
+            return redirect("empresas/");
+        }
+
+        return view('empresa.createEmpleado', compact('empresa'));
+    }
+
+    public function storeEmpleado($id, EmpleadoRequest $request){
+        $empresa = Empresa::find($id);
+
+        if(empty($empresa)){
+            Session::flash('fallo', "La empresa no existe.");
+            return redirect("empresas/");
+        }
+
+        $empleado = new Empleado();
+
+        $empleado->nombre = $request->input('nombre');
+        $empleado->apellido = $request->input('apellido');
+        $empleado->email = $request->input('email');
+        $empleado->telefono = $request->input('telefono');
+        $empleado->empresa_id = $id;
+
+        $empleado->save();
+        Session::flash('correcto', "El empleado se ha añadido correctamente.");
+
+        return redirect("empresas/".$id."/empleado");
     }
 }

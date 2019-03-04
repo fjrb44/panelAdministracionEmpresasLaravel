@@ -75,7 +75,7 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="" class="nav-link">
+                  <a href="/empleados" class="nav-link">
                     <i class="nav-icon fa fa-th"></i>
                     <p>
                       Empleados
@@ -83,10 +83,10 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="" class="nav-link">
+                  <a href="/empleados/create" class="nav-link">
                     <i class="nav-icon fa fa-th"></i>
                     <p>
-                      Nueva empleado
+                      Nuevo empleado
                     </p>
                   </a>
                 </li>
