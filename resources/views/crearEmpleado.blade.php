@@ -2,7 +2,13 @@
 
 @section('menu')
     <li class="nav-item">
-        <a class="nav-link" href="/empresas/{{$empresa->id}}">Volver a {{$empresa->name}}</a>
+        <a class="nav-link" href="/empresas">Empresas</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/empresas/{{$empresa->id}}">Ir a {{$empresa->name}}</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/empresas/{{$empresa->id}}/empleados">Ver empleados de {{$empresa->name}}</a>
     </li>
 @endsection
 

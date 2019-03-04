@@ -20,7 +20,7 @@
                     <div class="card-header">Empresa</div>
 
                     <div class="card-body">
-                        <form action="#" method="POST" enctype="multipart/form-data">
+                        <form action="/empresas" method="POST" enctype="multipart/form-data">
                         @csrf
                             <div class="form-group">
                                 <label for="name">

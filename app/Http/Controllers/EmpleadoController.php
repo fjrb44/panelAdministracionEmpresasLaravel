@@ -45,7 +45,7 @@ class EmpleadoController extends Controller
         $empleado->save();
         Session::flash('correcto', "El empleado se ha añadido correctamente.");
 
-        return redirect("empresas/".$id);
+        return redirect("empresas/".$id."/empleado");
     }
 
     public function show(Empleado $empleado){

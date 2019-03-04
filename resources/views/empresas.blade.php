@@ -7,6 +7,11 @@
                 {{Session::get('fallo')}}
             </div>
         @endif
+        @if(Session::has('borrar'))
+            <div class="alert alert-success">
+                {{Session::get('borrar')}}
+            </div>
+        @endif
         <div class="row justify-content-center">
             @if(sizeof($empresas) == 0)
             <div class="alert alert-warning">
@@ -35,18 +40,19 @@
                                 <td>{{ $empresa->email }}</td>
                                 <td><a href="{{ $empresa->web }}">{{ $empresa->web }}</a></td>
                                 <td>
-                                    <form action="empresas/{{$empresa->id}}">
+                                    <form action="empresas/{{$empresa->id}}">@csrf
                                         <button type="submit" class="btn btn-success">Ver empresa</button>
                                     </form>
                                 </td>
                                 <td>
-                                    <form action="empresas/{{$empresa->id}}/empleado">
+                                    <form action="empresas/{{$empresa->id}}/empleados">@csrf
                                         <button type="submit" class="btn btn-success">Ver empleados</button>
                                     </form>
                                 </td>
                                 <td>
-                                    <form action="empresas/{{$empresa->id}}/delete">
+                                    <form action="empresas/{{$empresa->id}}" method="post">@csrf
                                         <button type="submit" class="btn btn-danger">Eliminar</button>
+                                        <input type="hidden" name="_method" value="delete" />
                                     </form>
                                 </td>
                             </tr>

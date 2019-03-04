@@ -67,10 +67,26 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="/empresas/post" class="nav-link">
+                  <a href="/empresas/create" class="nav-link">
                     <i class="nav-icon fa fa-th"></i>
                     <p>
                       Nueva empresa
+                    </p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="" class="nav-link">
+                    <i class="nav-icon fa fa-th"></i>
+                    <p>
+                      Empleados
+                    </p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="" class="nav-link">
+                    <i class="nav-icon fa fa-th"></i>
+                    <p>
+                      Nueva empleado
                     </p>
                   </a>
                 </li>
