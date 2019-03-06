@@ -24,13 +24,12 @@
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
       <!-- Messages Dropdown Menu -->
-
-    <li>
-        <a href="/idioma/es" class="nav-link">Esp</a>
-    </li>
-    <li>
-        <a href="/idioma/en" class="nav-link">Eng</a>
-    </li>
+      <li>
+          <a href="/idioma/es" class="nav-link">Esp</a>
+      </li>
+      <li>
+          <a href="/idioma/en" class="nav-link">Eng</a>
+      </li>
 
       @auth
         <li class="nav-item dropdown">
@@ -49,8 +48,8 @@
                     @csrf
                 </form>
             </div>
-        </li>
-      @endauth
+          </li>
+        @endauth
 
     </ul>
   </nav>
