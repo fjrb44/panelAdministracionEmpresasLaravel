@@ -23,22 +23,22 @@ class EmpleadoController extends Controller
     }
 
     public function store(CreateEmpleadoRequest $request){
-        
+
         $empleado = new empleado();
-        
+
         $empleado->nombre = $request->input('nombre');
         $empleado->apellido = $request->input('apellido');
         $empleado->email = $request->input('email');
         $empleado->telefono = $request->input('telefono');
         $empleado->empresa_id = $request->input('empresa');
-        
+
         $empleado->save();
         Session::flash('correcto', "La empleado ha sido creada correctamente.");
-        
+
         return redirect("empleados/post");
     }
 
-    public function show($id){   
+    public function show($id){
         $empleado = Empleado::find($id);
 
         if(empty($empleado)){
@@ -62,21 +62,29 @@ class EmpleadoController extends Controller
         if(empty($empleado)){
             return redirect("empleados");
         }
-        
-        $empleado->nombre = $request->input('nombre');
-        $empleado->apellido = $request->input('apellido');
-        $empleado->email = $request->input('email');
-        $empleado->telefono = $request->input('telefono');
 
-        $empleado->save();
+        if(
+            $empleado->nombre != $request->input('nombre') ||
+            $empleado->apellido != $request->input('apellido') ||
+            $empleado->email != $request->input('email') ||
+            $empleado->telefono != $request->input('telefono')
+        ){
+            $empleado->nombre = $request->input('nombre');
+            $empleado->apellido = $request->input('apellido');
+            $empleado->email = $request->input('email');
+            $empleado->telefono = $request->input('telefono');
 
-        Session::flash('edit', "El empleado ha sido editado correctamente.");
+            $empleado->save();
+
+            Session::flash('edit', "El empleado ha sido editado correctamente.");
+        }
+
         return redirect("empleados/".$id."/edit");
     }
 
     public function destroy($id){
         $empleado = Empleado::find($id);
-        
+
         if(empty($empleado)){
             return redirect("empleados");
         }

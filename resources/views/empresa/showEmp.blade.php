@@ -38,6 +38,7 @@
                             <th scope="col">Apellidos</th>
                             <th scope="col">Email</th>
                             <th scope="col">Telefono</th>
+                            <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -47,6 +48,11 @@
                                 <td>{{ $empleado->apellido }}</td>
                                 <td>{{ $empleado->email }}</td>
                                 <td>{{ $empleado->telefono }}</td>
+                                <td>
+                                    <form action="/empleados/{{$empleado->id}}">
+                                        <button class="btn btn-success">Ver empleado</button>
+                                    </form>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>

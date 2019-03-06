@@ -7,6 +7,9 @@
         <a class="nav-link" href="/empleados">Empleados</a>
     </li>
     <li class="nav-item">
+        <a class="nav-link" href="/empresas/{{$empleado->empresa->id}}/empleados">Ver empleados de {{$empleado->empresa->name}}</a>
+    </li>
+    <li class="nav-item">
         <a class="nav-link" href="/empleados/{{$empleado->id}}/edit">Editar</a>
     </li>
 @endsection

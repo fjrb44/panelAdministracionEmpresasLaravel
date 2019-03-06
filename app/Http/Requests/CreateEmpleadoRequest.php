@@ -16,7 +16,7 @@ class CreateEmpleadoRequest extends FormRequest{
         return [
             "nombre" => ["required"],
             "apellido" => ["required"],
-            "email" => ["required"],
+            "email" => ["required","email","unique:users,email"],
             "telefono" => ["required"],
             "empresa" => ["required"]
         ];

@@ -24,9 +24,9 @@ class EmpresaController extends Controller
     }
 
     public function store(EmpresaRequest $request){
-        
+
         $empresa = new Empresa();
-        
+
         if($request->hasFile('logo')){
             $file = $request->file('logo');
             $name = $empresa->id.time().$file->getClientOriginalName();
@@ -34,19 +34,19 @@ class EmpresaController extends Controller
             $file->move(public_path("storage"), $name);
         }
 
-        
+
         $empresa->name = $request->input('name');
         $empresa->email = $request->input('email');
         $empresa->web = $request->input('web');
         $empresa->logo = $name;
-        
+
         $empresa->save();
         Session::flash('correcto', "La empresa ha sido creada correctamente.");
-        
+
         return redirect("empresas/post");
     }
 
-    public function show($id){   
+    public function show($id){
         $empresa = Empresa::find($id);
 
         if(empty($empresa)){
@@ -77,6 +77,8 @@ class EmpresaController extends Controller
 
     public function update(EditEmpresaRequest $request, $id){
         $empresa = Empresa::find($id);
+        $aux = false;
+
         if(empty($empresa)){
             return redirect("empresas");
         }
@@ -90,21 +92,30 @@ class EmpresaController extends Controller
             $file->move(public_path("storage"), $name);
 
             $empresa->logo = $name;
+            $aux = true;
         }
 
-        $empresa->name = $request->input('name');
-        $empresa->email = $request->input('email');
-        $empresa->web = $request->input('web');
+        if(
+            $aux ||
+            $empresa->name != $request->input('name') ||
+            $empresa->email != $request->input('email') ||
+            $empresa->web != $request->input('web')
+        ){
+            $empresa->name = $request->input('name');
+            $empresa->email = $request->input('email');
+            $empresa->web = $request->input('web');
 
-        $empresa->save();
+            $empresa->save();
 
-        Session::flash('edit', "La empresa ha sido editada correctamente. ");
+            Session::flash('edit', "La empresa ha sido editada correctamente.");
+        }
+
         return redirect("empresas/".$id."/edit");
     }
 
     public function destroy($id){
         $empresa = Empresa::find($id);
-        
+
         if(empty($empresa)){
             return redirect("empresas");
         }
