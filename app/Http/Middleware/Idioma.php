@@ -17,20 +17,10 @@ class Idioma
      * @return mixed
      */
     public function handle($request, Closure $next){
-        /*
-        $idioma = Session::get('idioma');
-        if(empty($idioma)){
-            $idioma = 'es';
-        }
+        $idiomaSesion = Session::get('idioma');
 
-        App::setLocale($idioma);
-
-        return $next($request);
-        */
-        $raw_locale = Session::get('idioma');
-
-        if (in_array($raw_locale, Config::get('app.locales'))) {
-          $locale = $raw_locale;
+        if (in_array($idiomaSesion, Config::get('app.locales'))) {
+          $locale = $idiomaSesion;
         }
         else {
             $locale = Config::get('app.locale');
@@ -38,7 +28,6 @@ class Idioma
         
         App::setLocale($locale);
         
-        //return (Config::get('app.locale'));
         return $next($request);
         
     }
