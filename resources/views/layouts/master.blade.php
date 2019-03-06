@@ -24,14 +24,14 @@
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
       <!-- Messages Dropdown Menu -->
-        <!--
-        <li>
-            <form action="">
-                <button value="es">Esp</button>
-                <button value="en">Eng</button>
-            </form>
-        </li>
-        -->
+
+    <li>
+        <a href="/idioma/es" class="nav-link">Esp</a>
+    </li>
+    <li>
+        <a href="/idioma/en" class="nav-link">Eng</a>
+    </li>
+
       @auth
         <li class="nav-item dropdown">
             <a href="#" id="navbarDropdown" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

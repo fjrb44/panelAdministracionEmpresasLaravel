@@ -1,6 +1,8 @@
 <?php
 Auth::routes([ 'register' => false]);
 
+Route::get('/idioma/{idioma}', 'IdiomaController');
+
 Route::middleware(["auth"])->group(function() {
 
     Route::get('/', 'EmpresaController@index')->name('home');
