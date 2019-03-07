@@ -77,7 +77,7 @@
                   <a href="/empresas" class="nav-link">
                     <i class="nav-icon fa fa-th"></i>
                     <p>
-                        {{ trans('trad.h-empresa') }}
+                        {{ trans('trad.h-empresas') }}
                     </p>
                   </a>
                 </li>
@@ -93,7 +93,7 @@
                   <a href="/empleados" class="nav-link">
                     <i class="nav-icon fa fa-th"></i>
                     <p>
-                        {{ trans('trad.e-employee') }}
+                        {{ trans('trad.e-employees') }}
                     </p>
                   </a>
                 </li>

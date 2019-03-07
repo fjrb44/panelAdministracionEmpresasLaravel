@@ -2,7 +2,7 @@
 
 @section('menu')
     <li class="nav-item">
-        <a class="nav-link" href="/empresas">{{ trans('trad.h-empresa') }}</a>
+        <a class="nav-link" href="/empresas">{{ trans('trad.h-empresas') }}</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="/empresas/{{$empresa->id}}">{{ trans('trad.h-go') }} {{$empresa->name}}</a>

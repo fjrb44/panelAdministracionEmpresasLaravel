@@ -4,7 +4,7 @@
 
 @section('menu')
     <li class="nav-item">
-        <a class="nav-link" href="/empleados">{{ trans('trad.e-employee') }}</a>
+        <a class="nav-link" href="/empleados">{{ trans('trad.e-employees') }}</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="/empresas/{{$empleado->empresa->id}}/empleados">{{ trans('trad.h-empl') }} {{$empleado->empresa->name}}</a>

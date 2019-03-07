@@ -18,6 +18,7 @@ return [
     'h-empl' => 'Show employees of',
     'email-subject' => 'Your company has been created',
     'e-employee' => 'Employee',
+    'e-employees' => 'Employees',
     'h-empresa' => 'Company',
     'h-empresas' => 'Companies',
     'e-empresa' => 'Edit company',
