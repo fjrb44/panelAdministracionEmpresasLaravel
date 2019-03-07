@@ -2,10 +2,10 @@
 
 @section('menu')
     <li class="nav-item">
-        <a class="nav-link" href="/empleados">Empleados</a>
+        <a class="nav-link" href="/empleados">{{ trans('trad.e-employee') }}</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="/empleados/{{$empleado->id}}">Ir a {{$empleado->nombre}}</a>
+        <a class="nav-link" href="/empleados/{{$empleado->id}}">{{ trans('trad.h-go') }} {{$empleado->nombre}}</a>
     </li>
 @endsection
 
@@ -26,7 +26,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Editar empleado</div>
+                    <div class="card-header">{{ trans('trad.e-empresa') }}</div>
 
                     <div class="card-body">
                         <form action="/empleados/{{$empleado->id}}" method="POST" enctype="multipart/form-data">
@@ -34,7 +34,7 @@
                             <input type="hidden" name="_method" value="PUT" />
                             <div class="form-group">
                                 <label for="name">
-                                    Nombre
+                                    {{ trans('trad.t-nombre') }}
                                 </label>
                                 @if(empty(old('nombre')))
                                     <input id="nombre" type="text" name="nombre" class="form-control" value="{{$empleado->nombre}}">
@@ -44,7 +44,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="apellido">
-                                    Nombre
+                                    {{ trans('trad.t-nombre') }}
                                 </label>
                                 @if(empty(old('apellido')))
                                     <input id="apellido" type="text" name="apellido" class="form-control" value="{{$empleado->apellido}}">
@@ -53,7 +53,7 @@
                                 @endif
                             </div>
                             <div class="form-group">
-                                <label for="email">Email</label>
+                                <label for="email">{{ trans('trad.t-email') }}</label>
                                 @if(empty(old('email')))
                                     <input id="email" type="email" name="email" class="form-control" value="{{$empleado->email}}">
                                 @else
@@ -61,8 +61,8 @@
                                 @endif
                             </div>
                             <div class="form-group">
-                                <label for="telefono">Telefono</label>
-                                
+                                <label for="telefono">{{ trans('trad.t-tlf') }}</label>
+
                                 @if(empty(old('web')))
                                     <input id="telefono" type="number" name="telefono" class="form-control" value="{{$empleado->telefono}}">
                                 @else
@@ -71,7 +71,7 @@
                             </div>
 
                             <button type="submit">
-                                Editar
+                                {{ trans('trad.b-edit') }}
                             </button>
                         </form>
                     </div>

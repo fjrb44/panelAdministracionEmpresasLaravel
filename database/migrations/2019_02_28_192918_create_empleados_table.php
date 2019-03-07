@@ -13,7 +13,7 @@ class CreateEmpleadosTable extends Migration
 
             $table->string('nombre');
             $table->string('apellido');
-            $table->string('email')->unique();
+            $table->string('email');
             $table->integer('telefono');
 
             $table->integer('empresa_id');

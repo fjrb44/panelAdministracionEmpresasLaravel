@@ -21,11 +21,11 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Apellidos</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Telefono</th>
-                            <th scope="col">Empresa</th>
+                            <th scope="col">{{ trans('trad.t-nombre') }}</th>
+                            <th scope="col">{{ trans('trad.t-apellido') }}</th>
+                            <th scope="col">{{ trans('trad.t-email') }}</th>
+                            <th scope="col">{{ trans('trad.t-tlf') }}</th>
+                            <th scope="col">{{ trans('trad.h-empresa') }}</th>
                             <th scope="col"></th>
                             <th scope="col"></th>
                         </tr>
@@ -40,12 +40,12 @@
                                 <td>{{ $empleado->empresa->name }}</td>
                                 <td>
                                     <form action="empleados/{{$empleado->id}}">@csrf
-                                        <button type="submit" class="btn btn-success">Ver empleado</button>
+                                        <button type="submit" class="btn btn-success">{{ trans('trad.t-b-emp') }}</button>
                                     </form>
                                 </td>
                                 <td>
                                     <form action="empleados/{{$empleado->id}}" method="post">@csrf
-                                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                                        <button type="submit" class="btn btn-danger">{{ trans('trad.t-b-del') }}</button>
                                         <input type="hidden" name="_method" value="delete" />
                                     </form>
                                 </td>

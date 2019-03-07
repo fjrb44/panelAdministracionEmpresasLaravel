@@ -15,16 +15,16 @@
         <div class="row justify-content-center">
             @if(sizeof($empresas) == 0)
             <div class="alert alert-warning">
-                No hay ninguna empresa
+                {{ trans('trad.t-n-emp') }}
             </div>
             @else
                 <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col">Logo</th>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Web</th>
+                            <th scope="col">{{ trans('trad.t-logo') }}</th>
+                            <th scope="col">{{ trans('trad.t-nombre') }}</th>
+                            <th scope="col">{{ trans('trad.t-email') }}</th>
+                            <th scope="col">{{ trans('trad.t-web') }}</th>
                             <th scope="col"></th>
                             <th scope="col"></th>
                             <th scope="col"></th>
@@ -41,17 +41,19 @@
                                 <td><a href="{{ $empresa->web }}">{{ $empresa->web }}</a></td>
                                 <td>
                                     <form action="empresas/{{$empresa->id}}">@csrf
-                                        <button type="submit" class="btn btn-success">Ver empresa</button>
+                                        <button type="submit" class="btn btn-success">
+                                            {{ trans('trad.t-b-ver') }}
+                                        </button>
                                     </form>
                                 </td>
                                 <td>
                                     <form action="empresas/{{$empresa->id}}/empleados">@csrf
-                                        <button type="submit" class="btn btn-success">Ver empleados</button>
+                                        <button type="submit" class="btn btn-success">{{ trans('trad.t-b-emp') }}</button>
                                     </form>
                                 </td>
                                 <td>
                                     <form action="empresas/{{$empresa->id}}" method="post">@csrf
-                                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                                        <button type="submit" class="btn btn-danger">{{ trans('trad.t-b-del') }}</button>
                                         <input type="hidden" name="_method" value="delete" />
                                     </form>
                                 </td>

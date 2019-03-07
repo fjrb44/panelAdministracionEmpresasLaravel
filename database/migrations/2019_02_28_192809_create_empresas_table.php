@@ -13,7 +13,7 @@ class CreateEmpresasTable extends Migration
             $table->bigIncrements('id');
 
             $table->string('name');
-            $table->string('email')->unique();
+            $table->string('email');
             $table->string('logo');
             $table->string('web');
 

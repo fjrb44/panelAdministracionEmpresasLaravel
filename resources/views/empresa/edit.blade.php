@@ -2,13 +2,13 @@
 
 @section('menu')
     <li class="nav-item">
-        <a class="nav-link" href="/empresas">Empresas</a>
+        <a class="nav-link" href="/empresas">{{ trans('trad.h-empresa') }}</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="/empresas/{{$empresa->id}}">Ir a {{$empresa->name}}</a>
+        <a class="nav-link" href="/empresas/{{$empresa->id}}">{{ trans('trad.h-go') }} {{$empresa->name}}</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="/empresas/{{$empresa->id}}/empleados">Ver empleados de {{$empresa->name}}</a>
+        <a class="nav-link" href="/empresas/{{$empresa->id}}/empleados">{{ trans('trad.h-empl') }} {{$empresa->name}}</a>
     </li>
 @endsection
 
@@ -29,7 +29,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Editar empresa</div>
+                    <div class="card-header">{{ trans('trad.e-empresa') }}</div>
 
                     <div class="card-body">
                         <form action="/empresas/{{$empresa->id}}" method="POST" enctype="multipart/form-data">
@@ -37,7 +37,7 @@
                             <input type="hidden" name="_method" value="PUT" />
                             <div class="form-group">
                                 <label for="name">
-                                    Nombre
+                                    {{ trans('trad.t-nombre') }}
                                 </label>
                                 @if(empty(old('name')))
                                     <input id="name" type="text" name="name" class="form-control" value="{{$empresa->name}}">
@@ -46,7 +46,7 @@
                                 @endif
                             </div>
                             <div class="form-group">
-                                <label for="email">Email</label>
+                                <label for="email">{{ trans('trad.t-email') }}</label>
                                 @if(empty(old('email')))
                                     <input id="email" type="email" name="email" class="form-control" value="{{$empresa->email}}">
                                 @else
@@ -54,8 +54,8 @@
                                 @endif
                             </div>
                             <div class="form-group">
-                                <label for="web">Web</label>
-                                
+                                <label for="web">{{ trans('trad.t-web') }}</label>
+
                                 @if(empty(old('web')))
                                     <input id="web" type="text" name="web" class="form-control" value="{{$empresa->web}}">
                                 @else
@@ -63,12 +63,12 @@
                                 @endif
                             </div>
                             <div class="form-group">
-                                <label for="logo">Logo</label>
+                                <label for="logo">{{ trans('trad.t-logo') }}</label>
                                 <input id="logo" type="file" name="logo" class="form-control">
                             </div>
 
                             <button type="submit">
-                                Editar
+                                {{ trans('trad.b-edit') }}
                             </button>
                         </form>
                     </div>

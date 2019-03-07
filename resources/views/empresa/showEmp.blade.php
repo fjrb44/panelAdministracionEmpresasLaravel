@@ -4,16 +4,16 @@
 
 @section('menu')
     <li class="nav-item">
-        <a class="nav-link" href="/empresas">Empresas</a>
+        <a class="nav-link" href="/empresas">{{ trans('trad.h-empresas') }}</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="/empresas/{{$empresa->id}}">Ver {{$empresa->name}}</a>
+        <a class="nav-link" href="/empresas/{{$empresa->id}}">{{ trans('trad.h-go') }} {{$empresa->name}}</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="/empresas/{{$empresa->id}}/empleado">Añadir empleado</a>
+        <a class="nav-link" href="/empresas/{{$empresa->id}}/empleado">{{ trans('trad.t-b-aniadir') }}</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="/empresas/{{$empresa->id}}/edit">Editar empresa</a>
+        <a class="nav-link" href="/empresas/{{$empresa->id}}/edit">{{ trans('trad.t-b-edit') }}</a>
     </li>
 @endsection
 
@@ -34,10 +34,10 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Apellidos</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Telefono</th>
+                            <th scope="col">{{ trans('trad.t-nombre') }}</th>
+                            <th scope="col">{{ trans('trad.t-apellido') }}</th>
+                            <th scope="col">{{ trans('trad.t-email') }}</th>
+                            <th scope="col">{{ trans('trad.t-tlf') }}</th>
                             <th scope="col"></th>
                         </tr>
                     </thead>
@@ -50,7 +50,7 @@
                                 <td>{{ $empleado->telefono }}</td>
                                 <td>
                                     <form action="/empleados/{{$empleado->id}}">
-                                        <button class="btn btn-success">Ver empleado</button>
+                                        <button class="btn btn-success">{{ trans('trad.t-b-emp') }}</button>
                                     </form>
                                 </td>
                             </tr>

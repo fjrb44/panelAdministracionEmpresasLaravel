@@ -21,14 +21,13 @@ class Idioma
 
         if (in_array($idiomaSesion, Config::get('app.locales'))) {
           $locale = $idiomaSesion;
-        }
-        else {
+        } else {
             $locale = Config::get('app.locale');
         }
-        
+
         App::setLocale($locale);
-        
+
         return $next($request);
-        
+
     }
 }

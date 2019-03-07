@@ -10,6 +10,7 @@ use App\Http\Requests\EditEmpresaRequest;
 use App\Http\Requests\EmpleadoRequest;
 use Session;
 use Illuminate\Support\Facades\Storage;
+use Mail;
 
 class EmpresaController extends Controller
 {
@@ -40,7 +41,15 @@ class EmpresaController extends Controller
         $empresa->web = $request->input('web');
         $empresa->logo = $name;
 
+        Mail::send('email.empresa.create', ["data" => $empresa->name], function($mensaje){
+            $mensaje->from('email@adminempresas.com', 'AdminEmpresas.es');
+
+            $mensaje->to( auth()->user()->email )
+                ->subject( trans('trad.email-subject') );
+        });
+
         $empresa->save();
+
         Session::flash('correcto', "La empresa ha sido creada correctamente.");
 
         return redirect("empresas/post");

@@ -77,7 +77,7 @@
                   <a href="/empresas" class="nav-link">
                     <i class="nav-icon fa fa-th"></i>
                     <p>
-                      Empresas
+                        {{ trans('trad.h-empresa') }}
                     </p>
                   </a>
                 </li>
@@ -85,7 +85,7 @@
                   <a href="/empresas/create" class="nav-link">
                     <i class="nav-icon fa fa-th"></i>
                     <p>
-                      Nueva empresa
+                        {{ trans('trad.t-b-aniadir-emp') }}
                     </p>
                   </a>
                 </li>
@@ -93,7 +93,7 @@
                   <a href="/empleados" class="nav-link">
                     <i class="nav-icon fa fa-th"></i>
                     <p>
-                      Empleados
+                        {{ trans('trad.e-employee') }}
                     </p>
                   </a>
                 </li>
@@ -101,7 +101,7 @@
                   <a href="/empleados/create" class="nav-link">
                     <i class="nav-icon fa fa-th"></i>
                     <p>
-                      Nuevo empleado
+                        {{ trans('trad.t-b-aniadir') }}
                     </p>
                   </a>
                 </li>

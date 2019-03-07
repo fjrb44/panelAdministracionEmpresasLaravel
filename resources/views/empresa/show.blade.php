@@ -4,16 +4,16 @@
 
 @section('menu')
     <li class="nav-item">
-        <a class="nav-link" href="/empresas">Empresas</a>
+        <a class="nav-link" href="/empresas">{{ trans('trad.h-empresa') }}</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="/empresas/{{$empresa->id}}/empleados">Ver empleados</a>
+        <a class="nav-link" href="/empresas/{{$empresa->id}}/empleados">{{ trans('trad.t-b-ver') }}</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{{$empresa->id}}/empleado">Añadir empleado</a>
+        <a class="nav-link" href="{{$empresa->id}}/empleado">{{ trans('trad.t-d-aniadir') }}</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="/empresas/{{$empresa->id}}/edit">Editar empresa</a>
+        <a class="nav-link" href="/empresas/{{$empresa->id}}/edit">{{ trans('trad.t-b-edit') }}</a>
     </li>
 @endsection
 

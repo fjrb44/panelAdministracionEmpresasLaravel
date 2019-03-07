@@ -17,7 +17,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Empleado</div>
+                    <div class="card-header">{{ trans('trad.e-employee') }}</div>
 
                     @if(sizeof($empresas) === 0)
                         <div class="alert alert-warning">
@@ -29,26 +29,26 @@
                             @csrf
                                 <div class="form-group">
                                     <label for="nombre">
-                                        Nombre
+                                        {{ trans('trad.t-nombre') }}
                                     </label>
                                     <input id="nombre" type="text" name="nombre" class="form-control" value="{{old('nombre')}}">
                                 </div>
                                 <div class="form-group">
                                     <label for="apellido">
-                                        Apellidos
+                                        {{ trans('trad.t-apellido') }}
                                     </label>
                                     <input id="apellido" type="text" name="apellido" class="form-control" value="{{old('apellido')}}">
                                 </div>
                                 <div class="form-group">
-                                    <label for="email">Email</label>
+                                    <label for="email">{{ trans('trad.t-email') }}</label>
                                     <input id="email" type="email" name="email" class="form-control" value="{{old('email')}}">
                                 </div>
                                 <div class="form-group">
-                                    <label for="telefono">Telefono</label>
+                                    <label for="telefono">{{ trans('trad.t-tlf') }}</label>
                                     <input id="telefono" type="number" name="telefono" class="form-control" value="{{old('telefono')}}">
                                 </div>
                                 <div class="form-group">
-                                    <label for="empresa">Empresa</label>
+                                    <label for="empresa">{{ trans('trad.h-empresa') }}</label>
                                     <select name="empresa" id="empresa" class="form-control">
                                         <option value="" disabled hidden selected></option>
                                         @foreach($empresas as $empresa)
@@ -58,7 +58,7 @@
                                 </div>
 
                                 <button type="submit">
-                                    Crear
+                                    {{ trans('trad.b-crear') }}
                                 </button>
                             </form>
                         </div>
